@@ -19,13 +19,13 @@ export default function HomePage() {
     async function fetchMovies() {
       setLoading(true);
       setError(null);
-
+  
       try {
-        const response = await fetch('/api/movies');
+        const response = await fetch('http://localhost:3001/api/movies');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
+  
         const data = await response.json();
         setMovies(data.results || []);
       } catch (error: unknown) {
