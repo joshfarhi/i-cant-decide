@@ -1,8 +1,7 @@
-// File: pages/api/movies.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const API_KEY = process.env.TMDB_API_KEY; // Securely access the API key
+  const API_KEY = process.env.TMDB_API_KEY;
   const BASE_URL = 'https://api.themoviedb.org/3';
 
   if (!API_KEY) {
@@ -18,8 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const data = await response.json();
-
-    res.status(200).json(data); // Send movie data to the client
+    res.status(200).json(data);
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error('Error fetching movies:', error.message);

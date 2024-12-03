@@ -21,7 +21,7 @@ export default function HomePage() {
       setError(null);
   
       try {
-        const response = await fetch('http://localhost:3001/api/movies');
+        const response = await fetch('/api/movies');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
